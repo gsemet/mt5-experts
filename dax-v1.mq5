@@ -35,6 +35,7 @@ input int                Inp_Signal_CrossEMA_FastPeriod   = 6;
 input int                Inp_Signal_CrossEMA_SlowPeriod   = 20;
 input int                Inp_Signal_CrossEMA_StopLoss     = 30;
 input int                Inp_Signal_Min_Win               = 10; // Minimal win.
+input int                Inp_Never_Loose_Money            = true;  // If true, never loose money
 
 //--- inputs for trailing
 input int                Trailing_NoLose_StopLevel            = 30;     // Stop Loss trailing level (in points)
@@ -91,6 +92,7 @@ int OnInit()
     signal.RetracementThreshold(Trailing_NoLose_RetracementThreshold);
     signal.AllowedRetracement(Trailing_NoLose_AllowedRetracement);
     signal.MinWin(Inp_Signal_Min_Win);
+    signal.EnableNeverLooseMoney(Inp_Never_Loose_Money);
    
     //--- Check signal parameters
     if (!signal.ValidationSettings())
